@@ -21,6 +21,7 @@ from task1.views import shop_page_f
 from task1.views import cart_page_f
 from task1.views import sign_up_by_django
 from task1.views import sign_up_by_html
+from task1.views import news_f
 
 
 urlpatterns = [
@@ -30,4 +31,5 @@ urlpatterns = [
     path('main_page/cart_page/', cart_page_f),
     path('by_django/', sign_up_by_django),
     path('by_html/', sign_up_by_html),
+    path('platform/news/', news_f),
 ]

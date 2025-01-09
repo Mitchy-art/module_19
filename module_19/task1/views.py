@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from .forms import UserRegister
 from .models import *
 
+from django.core.paginator import Paginator
+from django.shortcuts import render
+from .models import News
+
 # users = ["Ivan", "Andrew", "Petr"]
 info = {}
 
@@ -70,3 +74,11 @@ def sign_up_by_html(request):
             Buyer.objects.create(name=username, age=age, balance=250)
             info['message'] = f'Приветствуем, {username}!'
     return render(request, 'fifth_task/registration_page.html', info)
+
+
+def news_f(request):
+    news = News.objects.all().order_by('-date')
+    paginator = Paginator(news, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'second_task/news.html', {'page_obj': page_obj})
