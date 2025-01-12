@@ -28,3 +28,10 @@ class News(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
+
+
+class Cats(models.Model):
+    gender = models.CharField(max_length=6)
+    breed = models.CharField(max_length=50)
+    colors = models.CharField(max_length=100)
+    age = models.CharField(max_length=5)
